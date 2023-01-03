@@ -208,7 +208,7 @@
         <h1 style="color:#cfab51" id="error_logger"></h1>
         <div id="qrcode">
         </div>
-        <button id="download-button">Download</button>
+        <button id="download-button">DOWNLOAD!</button>
     </div>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
@@ -231,6 +231,7 @@
 document.getElementById('download-button').onclick =function () {
   downloadFile(document.getElementsByTagName('img')[0].src, 'Generated_EPC-QRCode.png');
 }
+document.getElementById('download-button').style.visibility = "hidden"
     var purps = {
         "": "No 4-letter-purpose is currently selected.",
         "CDCD" : "This purpose is ATM cash withdrawal or cash withdrawal at the bank teller's counter.",
@@ -387,7 +388,7 @@ document.getElementById('download-button').onclick =function () {
         width:512,
         height:512});
         document.getElementById("error_logger").innerText = "Successfully generated!"
-        
+        document.getElementById('download-button').style.visibility = "visible"
         } else {
             console.log("Not all required fields are satisfied.")
             document.getElementById("error_logger").innerText = "Not all required fields are satisfied."
