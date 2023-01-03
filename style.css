@@ -45,6 +45,7 @@ body {
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
+    
 }
 
 #info > h3 {
@@ -70,6 +71,7 @@ h4 {
     background-color:  inherit;
     margin:0;
     border-radius: 10px;
+
 }
 
 li {
@@ -168,11 +170,18 @@ li {
 }
 
 #hint {
-    width: 5vh;
-    height:5vh;
+    width: 5vw;
+    height:5vw;
+    margin-right: 1vw;
+    margin-left:1vw;
 }
 #trans_1 {
     width:100vw;
-    height:10vh;
-    background-color:#210b1b;
+    height:30vh;
+    background:linear-gradient( #4d222c 20%, transparent 80%);
+}
+#trans_2 {
+    width:100vw;
+    height:30vh;
+    background:linear-gradient(#210b1b 20%, #4d222c 80%);
 }
