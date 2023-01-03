@@ -185,8 +185,8 @@
             <input type="text" id="remit" placeholder="Enter RF..." maxlength="35">
             <h3 style="color: #9d654c;">Enter additional optional info:</h3>
             <input type="text" id="inf" placeholder="Additional Info..." maxlength="70">
-            <h4 style="font-size: small;"></h4>
-            <svg viewBox="0 0 100 100" id="trans_1">
+            <h4 style="font-size: smaller;"></h4>
+            <svg viewBox="0 0 100 100" id="arrow">
                 <path fill="#9d654c" d="
                 M 35, 1
                 h 30
@@ -202,17 +202,35 @@
                 z
                 "/>
             </svg>
-            <h4 style="font-size: small;"></h4>
+            <h4 style="font-size: smaller;"></h4>
             <button id="submit-button" onclick="Submit()">GENERATE!</button>
         </div>
-
+        <h1 style="color:#cfab51" id="error_logger"></h1>
         <div id="qrcode">
         </div>
+        <button id="download-button">Download</button>
     </div>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <script src="qrcode.js"></script>
     <script>
+        function downloadFile(url, fileName){
+  fetch(url, { method: 'get', mode: 'no-cors', referrerPolicy: 'no-referrer' })
+    .then(res => res.blob())
+    .then(res => {
+      const aElement = document.createElement('a');
+      aElement.setAttribute('download', fileName);
+      const href = URL.createObjectURL(res);
+      aElement.href = href;
+      // aElement.setAttribute('href', href);
+      aElement.setAttribute('target', '_blank');
+      aElement.click();
+      URL.revokeObjectURL(href);
+    });
+};
+document.getElementById('download-button').onclick =function () {
+  downloadFile(document.getElementsByTagName('img')[0].src, 'Generated_EPC-QRCode.png');
+}
     var purps = {
         "": "No 4-letter-purpose is currently selected.",
         "CDCD" : "This purpose is ATM cash withdrawal or cash withdrawal at the bank teller's counter.",
@@ -362,15 +380,17 @@
         document.getElementById("qrcode").innerHTML = ""
         console.log(query.length)
         new QRCode(document.getElementById("qrcode"), {
-        version:13,
         text:query,
         correctLevel:QRCode.CorrectLevel.M,
         colorDark:"#181c28",
         colorLight:"#FFFFFF",
         width:512,
         height:512});
+        document.getElementById("error_logger").innerText = "Successfully generated!"
+        
         } else {
             console.log("Not all required fields are satisfied.")
+            document.getElementById("error_logger").innerText = "Not all required fields are satisfied."
         }
     }
     addEventListener("click", ()=>{
