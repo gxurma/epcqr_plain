@@ -7,6 +7,7 @@
     <title>EPCQR - Code</title>
 </head>
 <body>
+    
     <div id="body-container">
         <div id="splash-screen">
             <h2>Welcome to the EPCQR - Code converter!</h2>
@@ -19,8 +20,10 @@
                 <li>intuitive</li>
                 <li>blazingly fast</li>
                 <li>anonymous</li>
+                
             </ul>
         </div>
+        
 
         <div id="submit-form">
             <h2 style="text-decoration: underline;">The Prompt / The data input</h2>
@@ -162,9 +165,15 @@
                 <option value="WTER">Utilities - WTER - Water Bill</option>
 
             </select>
-            <h4 id="purp-inspector">
-                No 4-letter-purpose is currently selected.
-            </h4>
+            <div id="purp-container">
+                <svg viewBox="0 0 50 50" id="hint">
+                    <circle cx="25" cy="25" r="25" fill="#cfab51"/>
+                    <text x="19" y="37" fill="#210b1b" font="Rubik" style="font-weight:bold;font-size:35px;">i</text>
+                </svg>
+                <h4 id="purp-inspector">
+                    No 4-letter-purpose is currently selected.
+                </h4>
+            </div>
             <h3 style="color: #9d654c;">Choose the type of Remittance:</h3>
             <select id="remt">
                 <option value="first">Use Remittance Reference</option>
@@ -173,7 +182,24 @@
             <input type="text" id="remit" placeholder="Enter RF..." maxlength="35">
             <h3 style="color: #9d654c;">Enter additional optional info:</h3>
             <input type="text" id="inf" placeholder="Additional Info..." maxlength="70">
-            <h3></h3>
+            <h4 style="font-size: small;"></h4>
+            <svg viewBox="0 0 100 100" id="trans_1">
+                <path fill="#9d654c" d="
+                M 35, 1
+                h 30
+                v 50
+                h -30
+                v -50
+                z
+                "/>
+                <path fill="#9d654c" d="
+                M 12.5, 50
+                h 75
+                l -37.5, 50
+                z
+                "/>
+            </svg>
+            <h4 style="font-size: small;"></h4>
             <button id="submit-button" onclick="Submit()">GENERATE!</button>
         </div>
 
