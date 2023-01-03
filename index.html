@@ -24,10 +24,15 @@
 
         <div id="submit-form">
             <h2 style="text-decoration: underline;">The Prompt / The data input</h2>
+            <h3 style="color: #9d654c;">Enter your BIC Code / the beneficiary's BIC Code here:</h3>
             <input type="text" id="bic" maxlength="11" placeholder="Enter BIC code...">
+            <h3 style="color: #9d654c;">Enter your name / the beneficiary's name here:</h3>
             <input type="text" id="name" maxlength="70" placeholder="Enter name of beneficiary...">
+            <h3 style="color: #9d654c;">Enter your IBAN / the beneficiary's IBAN:</h3>
             <input type="text" id="iban" maxlength="34" placeholder="Enter IBAN...">
+            <h3 style="color: #9d654c;">Enter the amount in euros:</h3>
             <input type="text" id="amount" maxlength="12" placeholder="Enter amount in euros...">
+            <h3 style="color: #9d654c;">Choose the corresponding purpose of the transfer:</h3>
             <select id="purp" maxlength="4" placeholder="Enter 4-letter purpose">
                 <option value="">----</option>
                 <option value="CDCD">Card Settlement - CDCD - Cash Disbursement</option>
@@ -160,13 +165,16 @@
             <h4 id="purp-inspector">
                 No 4-letter-purpose is currently selected.
             </h4>
+            <h3 style="color: #9d654c;">Choose the type of Remittance:</h3>
             <select id="remt">
                 <option value="first">Use Remittance Reference</option>
                 <option value="second">Use Remittance text</option>
             </select>
             <input type="text" id="remit" placeholder="Enter RF..." maxlength="35">
+            <h3 style="color: #9d654c;">Enter additional optional info:</h3>
             <input type="text" id="inf" placeholder="Additional Info..." maxlength="70">
-            <button id="submit-button" onclick="Submit()">Generate!</button>
+            <h3></h3>
+            <button id="submit-button" onclick="Submit()">GENERATE!</button>
         </div>
 
         <div id="qrcode">

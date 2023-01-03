@@ -135,15 +135,15 @@ li {
 }
 
 #submit-button {
-    font-size: 2vw;
+    font-size: 5vw;
     border:none;
     border-radius: 5rem;
     font-family: 'Rubik';
-    min-width: 15vw;
+    font-weight: 900;
+    min-width: 40vw;
     background-color: #9d654c;
     color: #210b1b;
-    transition: background-color 500ms ease-in-out;
-    transition: color 500ms ease-in-out;
+    transition-property: all 500ms ease-in-out;
 }
 
 #submit-button:hover {
