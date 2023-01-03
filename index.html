@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPCQR - Code</title>
+</head>
+<body>
+    <div id="body-container">
+        <div id="splash-screen">
+            <h2>Welcome to the EPCQR - Code converter!</h2>
+        </div>
+        <div id="info">
+            <h3>
+                Advantages:
+            </h3>
+            <ul>
+                <li>intuitive</li>
+                <li>blazingly fast</li>
+                <li>anonymous</li>
+            </ul>
+        </div>
+
+        <div id="submit-form">
+            <h2 style="text-decoration: underline;">The Prompt / The data input</h2>
+            <input type="text" id="bic" maxlength="11" placeholder="Enter BIC code...">
+            <input type="text" id="name" maxlength="70" placeholder="Enter name of beneficiary...">
+            <input type="text" id="iban" maxlength="34" placeholder="Enter IBAN...">
+            <input type="text" id="amount" maxlength="12" placeholder="Enter amount in euros...">
+            <select id="purp" maxlength="4" placeholder="Enter 4-letter purpose">
+                <option value="">----</option>
+                <option value="CDCD">Card Settlement - CDCD - Cash Disbursement</option>
+                <option value="CDCB">Card Settlement - CDCB - Card Payment with cashback</option>
+                <option value="CDQC">Card Settlement - CDQC - Quasi Cash</option>
+                <option value="CDOC">Card Settlement - CDOC - Original Credit</option>
+                <option value="ACCT">Cash Management - ACCT - account management in bank</option>
+                <option value="CASH">Cash Management - CASH - transfer outside bank</option>
+                <option value="COLL">Cash Management - COLL - Collection payment</option>
+                <option value="CSDB">Cash Management - CSDB - Cash Disbursement</option>
+                <option value="DEPT">Cash Management - DEPT - Deposit</option>
+                <option value="INTC">Cash Management - INTC - Intra-company payment</option>
+                <option value="LIMA">Cash Management - LIMA - Liquidity Management</option>
+                <option value="NETT">Cash Management - NETT - Netting</option>
+                <option value="AGRT">Commercial - AGRT - Agricultural Transfer</option>
+                <option value="AREN">Commercial - AREN - Account Receivables Entry</option>
+                <option value="BEXP">Commercial - BEXP - Business Expenses</option>
+                <option value="BOCE">Commercial - BOCE - Back Office Conversion Entry</option>
+                <option value="COMC">Commercial - COMC - Commercial Payment</option>
+                <option value="CPYR">Commercial - CPYR - Copyright</option>
+                <option value="GDDS">Commercial - GDDS - Purchase & Sale of Goods</option>
+                <option value="GDSV">Commercial - GDSV - Purchase & Sale of Goods and Services</option>
+                <option value="GSCB">Commercial - GSCB - Purchase & Sale of Goods and Services with Cash-back</option>
+                <option value="LICF">Commercial - LICF - License Fee</option>
+                <option value="POPE">Commercial - POPE - Point of Purchase Entry</option>
+                <option value="ROYA">Commercial - ROYA - Royalties</option>
+                <option value="SCVE">Commercial - SCVE - Purchase & Sale of Services</option>
+                <option value="SUBS">Commercial - SUBS - Subscription</option>
+                <option value="SUPP">Commercial - SUPP - Supplier Payment</option>
+                <option value="TRAD">Commercial - TRAD - Trade Services</option>
+                <option value="CHAR">Consumer - CHAR - Charity Payment</option>
+                <option value="COMT">Consumer - COMT - Consumer Third Party Consolidated Payment</option>
+                <option value="CLPR">Finance - CLPR - Car Loan Principal Repayment</option>
+                <option value="DBTC">Finance - DBTC - Debit Collection Payment</option>
+                <option value="GOVI">Finance - GOVI - Government Insurance</option>
+                <option value="HLRP">Finance - HLRP - Housing Loan Repayment</option>
+                <option value="INPC">Finance - INPC - Insurance Premium-Car</option>
+                <option value="INSU">Finance - INSU - Insurance Premium</option>
+                <option value="INTE">Finance - INTE - Interest</option>
+                <option value="LBRI">Finance - LBRI - Labor Insurance</option>
+                <option value="LIFI">Finance - LIFI - Life Insurance</option>
+                <option value="LOAN">Finance - LOAN - Loan</option>
+                <option value="LOAR">Finance - LOAR - Loan Repayment</option>
+                <option value="PPTI">Finance - PPTI - Property Insurance</option>
+                <option value="RINP">Finance - RINP - Recurring Installment Payment</option>
+                <option value="TRFD">Finance - TRFD - Trust Fund</option>
+                <option value="ADVA">General - ADVA - Advance Payment</option>
+                <option value="CBFF">General - CBFF - Capital Building</option>
+                <option value="CCRD">General - CCRD - Credit Card Payment</option>
+                <option value="CDBL">General - CDBL - Credit Card Bill</option>
+                <option value="CFEE">General - CFEE - Cancellation Fee</option>
+                <option value="COST">General - COST - Costs</option>
+                <option value="DCRD">General - DCRD - Debit Card Payment</option>
+                <option value="GOVT">General - GOVT - Government Payment</option>
+                <option value="ICCP">General - ICCP - Irrevocable Credit Card Payment</option>
+                <option value="IDCP">General - IDCP - Irrevocable Debit Card Payment</option>
+                <option value="IHRP">General - IHRP - Installment Hire Purchase Agreement</option>
+                <option value="INSM">General - INSM - Installment</option>
+                <option value="MSVC">General - MSVC - Multiple Service Types</option>
+                <option value="NOWS">General - NOWS - Not Otherwise specified</option>
+                <option value="OFEE">General - OFEE - Opening Fee</option>
+                <option value="OTHR">General - OTHR - Other</option>
+                <option value="PADD">General - PADD - Pre-authorized debit</option>
+                <option value="PTSP">General - PTSP - Payment terms</option>
+                <option value="RCKE">General - RCKE - Re-presented check entry</option>
+                <option value="RCPT">General - RCPT - Receipt Payment</option>
+                <option value="REFU">General - REFU - Refund</option>
+                <option value="RENT">General - RENT - Rent</option>
+                <option value="STDY">General - STDY - Study</option>
+                <option value="TELI">General - TELI - Telephone-initiated Transaction</option>
+                <option value="WEBI">General - WEBI - Internet-initiated Transaction</option>
+                <option value="ANNI">Investment - ANNI - Annuity</option>
+                <option value="CMDT">Investment - CMDT - Commodities</option>
+                <option value="DERI">Investment - DERI - Derivatives</option>
+                <option value="DIVD">Investment - DIVD - Dividend</option>
+                <option value="FREX">Investment - FREX - Foreign Exchange</option>
+                <option value="HEDG">Investment - HEDG - Hedging</option>
+                <option value="PRME">Investment - PRME - Precious Metals</option>
+                <option value="SAVG">Investment - SAVG - Savings</option>
+                <option value="SECU">Investment - SECU - Securities</option>
+                <option value="TREA">Investment - TREA - Treasury Payment</option>
+                <option value="ANTS">Medical - ANTS - Anesthesia Services</option>
+                <option value="CVCF">Medical - CVCF - Convalescent Care Facility</option>
+                <option value="DMEQ">Medical - DMEQ - Durable Medical Equipment</option>
+                <option value="DNTS">Medical - DNTS - Dental Services</option>
+                <option value="HLTC">Medical - HLTC - Home Health Care</option>
+                <option value="HLTI">Medical - HLTI - Health Insurance</option>
+                <option value="HSPC">Medical - HSPC - Hospital Care</option>
+                <option value="ICRF">Medical - ICRF - Intermediate Care Facility</option>
+                <option value="LTCF">Medical - LTCF - Long Term Care Facility</option>
+                <option value="MDCS">Medical - MDCS - Medical Services</option>
+                <option value="VIEW">Medical - VIEW - Vision Care</option>
+                <option value="ALMY">Salary & Benefits - ALMY - Alimony Payment</option>
+                <option value="BECH">Salary & Benefits - BECH - Child Benefit</option>
+                <option value="BENE">Salary & Benefits - BENE - Unemployment/Disability Benefit</option>
+                <option value="BONU">Salary & Benefits - BONU - Bonus Payment</option>
+                <option value="COMM">Salary & Benefits - COMM - Commission</option>
+                <option value="CSLP">Salary & Benefits - CSLP - Company Social Loan Payment To Bank</option>
+                <option value="GVEA">Salary & Benefits - GVEA - Austrian Government Employees Category A</option>
+                <option value="GVEB">Salary & Benefits - GVEB - Austrian Government Employees Category B</option>
+                <option value="GVEC">Salary & Benefits - GVEC - Austrian Government Employees Category C</option>
+                <option value="GVED">Salary & Benefits - GVED - Austrian Government Employees Category D</option>
+                <option value="PAYR">Salary & Benefits - PAYR - Payroll</option>
+                <option value="PENS">Salary & Benefits - PENS - Pension</option>
+                <option value="PRCP">Salary & Benefits - PRCP - Price Payment</option>
+                <option value="SALA">Salary & Benefits - SALA - Salary Payment</option>
+                <option value="SSBE">Salary & Benefits - SSBE - Social Security Benefit</option>
+                <option value="ESTX">Tax - ESTX - Estate Tax</option>
+                <option value="HSTX">Tax - HSTX - Housing Tax</option>
+                <option value="INTX">Tax - INTX - Income Tax</option>
+                <option value="NITX">Tax - NITX - Net Income Tax</option>
+                <option value="TAXS">Tax - TAXS - Tax Payment</option>
+                <option value="VATX">Tax - VATX - Value Added Tax Payment</option>
+                <option value="WHLD">Tax - WHLD - Withholding Tax</option>
+                <option value="AIRB">Transport - AIRB - Air</option>
+                <option value="BUSB">Transport - BUSB - Bus</option>
+                <option value="FERB">Transport - FERB - Ferry</option>
+                <option value="RLWY">Transport - RLWY - Railway</option>
+                <option value="CBTV">Utilities - CBTV - Cable TV Bill</option>
+                <option value="ELEC">Utilities - ELEC - Electricity Bill</option>
+                <option value="ENRG">Utilities - ENRG - Energies</option>
+                <option value="GASB">Utilities - GASB - Gas Bill</option>
+                <option value="NWCH">Utilities - NWCH - Network Charge</option>
+                <option value="NWCM">Utilities - NWCM - Network Communication</option>
+                <option value="OTLC">Utilities - OTLC - Other Telecom Related Bill</option>
+                <option value="PHON">Utilities - PHON - Telephone Bill</option>
+                <option value="WTER">Utilities - WTER - Water Bill</option>
+
+            </select>
+            <h4 id="purp-inspector">
+                No 4-letter-purpose is currently selected.
+            </h4>
+            <select id="remt">
+                <option value="first">Use Remittance Reference</option>
+                <option value="second">Use Remittance text</option>
+            </select>
+            <input type="text" id="remit" placeholder="Enter RF..." maxlength="35">
+            <input type="text" id="inf" placeholder="Additional Info..." maxlength="70">
+            <button id="submit-button" onclick="Submit()">Generate!</button>
+        </div>
+
+        <div id="qrcode">
+        </div>
+    </div>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="qrcode.js"></script>
+    <script>
+    var purps = {
+        "": "No 4-letter-purpose is currently selected.",
+        "CDCD" : "This purpose is ATM cash withdrawal or cash withdrawal at the bank teller's counter.",
+        "CDCB" : "This is the purchase of Goods and Services with additional Cash disbursement at the point of sale (Cash-back).",
+        "CDQC" : "This is purchase of Goods which are equivalent to cash like coupons in casinos.",
+        "CDOC" : "This is a service which allows the card acceptor to effect a credit to a cardholder' account. Unlike a Merchant Refund, an Original Credit is not preceded by a card payment. This service is used for example for crediting winnings from gaming.",
+        "ACCT" : "This is a transaction that moves funds between 2 accounts of the same account holder at the same bank.",
+        "CASH" : "The transaction is a general cash management instruction.",
+        "COLL" : "This is a transaction that is a collection of funds initiated via a credit transfer or direct debit.",
+        "CSDB" : "The Transaction is related to cash disbursement.",
+        "DEPT" : "The transaction is related to a payment of deposit.",
+        "INTC" : "The transaction is an intra-company payment, i. e. a payment between two companies belonging to the same group.",
+        "LIMA" : "This is a bank initiated account transfer to support zero target balance management, pooling or sweeping.",
+        "NETT" : "The transaction is related to a netting operation.",
+        "AGRT" : "The transaction is related to the agricultural domain.",
+        "AREN" : "The transaction is related to a payment associated with an Account Receivable Entry.",
+        "BEXP" : "The transaction is related to a payment of business expenses.",
+        "BOCE" : "The transaction is related to a payment associated with a Back Office Conversion Entry.",
+        "COMC" : "Transaction is related to a payment of commercial loan or debt regarding the loan.",
+        "CPYR" : "The transaction is payment of copyright.",
+        "GDDS" : "This purpose corresponds to purchases and sale of goods.",
+        "GDSV" : "The transaction is related to purchase and sale of goods and services.",
+        "GSCB" : "The transaction is related to purchase and sale of goods and services with cash back.",
+        "LICF" : "The transaction is payment of a license fee.",
+        "POPE" : "The transaction is related to a payment associated with a Point of Purchase Entry.",
+        "ROYA" : "The transaction is the payment of royalties.",
+        "SCVE" : "Transaction is related to purchase and sale of services.",
+        "SUBS" : "The transaction is related to a payment of information or entertainment services.",
+        "SUPP" : "The transaction is related to a payment to a supplier.",
+        "TRAD" : "The transaction is related to a trade service operation.",
+        "CHAR" : "The transaction is a payment for charity reasons.",
+        "COMT" : "The transaction is a payment used by a third party who can collect funds to pay on behalf of consumers.",
+        "CLPR" : "The transaction is a payment of car loan principal payment.",
+        "DBTC" : "This is the collection of funds initiated via a debit transfer.",
+        "GOVI" : "The transaction is related to a payment of government insurance.",
+        "HLRP" : "The transaction is related to a payment of housing loan.",
+        "INPC" : "The transaction is a payment of car insurance premium.",
+        "INSU" : "The transaction is payment of an insurance premium.",
+        "INTE" : "The transaction is payment of interest.",
+        "LBRI" : "The transaction is a payment of labor insurance.",
+        "LIFI" : "The transaction is a payment of life insurance.",
+        "LOAN" : "The transaction is related to transfer of loan to borrower.",
+        "LOAR" : "The transaction is related to repayment of loan to lender.",
+        "PPTI" : "The transaction is a payment of property insurance.",
+        "RINP" : "The transaction is related to a payment of a recurring installment made at regular intervals.",
+        "TRFD" : "The transaction is related to a payment of a trust fund.",
+        "ADVA" : "The transaction is an advance payment.",
+        "CBFF" : "The transaction is related to capital building fringe fortune, i. e. capital building for retirement.",
+        "CCRD" : "The transaction is related to a payment of credit card account.",
+        "CDBL" : "The transaction is related to a payment of credit card bill.",
+        "CFEE" : "The transaction is related to a payment of cancellation fee.",
+        "COST" : "The transaction is related to payment of costs.",
+        "DCRD" : "The transaction is related to a debit card payment.",
+        "GOVT" : "The transaction is a payment to or from a government department.",
+        "ICCP" : "The transaction is reimbursement of credit card payment",
+        "IDCP" : "The transaction is reimbursement of debit card payment.",
+        "IHRP" : "The transaction is payment for an installment/hire-purchase agreement.",
+        "INSM" : "The transaction is related to a payment of an installment.",
+        "MSVC" : "The transaction is related to a payment for multiple service types.",
+        "NOWS" : "The transaction is related to a payment for type of services not specified elsewhere.",
+        "OFEE" : "The transaction is related to a payment of opening fee.",
+        "OTHR" : "This is for other payment purposes.",
+        "PADD" : "The transaction is related to a pre-authorized debit origination.",
+        "PTSP" : "The transaction is related to payment terms specifications.",
+        "RCKE" : "The transaction is related to a payment associated with a re-presented check entry.",
+        "RCPT" : "The transaction is related to a payment of receipt.",
+        "REFU" : "The transaction is the payment of a refund.",
+        "RENT" : "The transaction is the payment of rent.",
+        "STDY" : "The transaction is related to a payment of study/tuition costs.",
+        "TELI" : "The transaction is related to a payment initiated via telephone.",
+        "WEBI" : "The transaction is related to a payment initiated via internet.",
+        "ANNI" : "The transaction settles annuity related to credit, insurance, investments, ...",
+        "CMDT" : "The transaction is payment of commodities.",
+        "DERI" : "The transaction is related to a derivatives transaction.",
+        "DIVD" : "The transaction is payment of dividends.",
+        "FREX" : "The transaction is related to a foreign exchange operation.",
+        "HEDG" : "The transaction is related to a hedging operation.",
+        "PRME" : "The transaction is related to a precious metal operation.",
+        "SAVG" : "The transfer to a savings/retirement account.",
+        "SECU" : "The transaction is the payment of securities.",
+        "TREA" : "The transaction is related to treasury operations.",
+        "ANTS" : "The transaction is a payment for anesthesia services.",
+        "CVCF" : "The transaction is a payment for convalescence care facility services.",
+        "DMEQ" : "The transaction is a payment is for use of durable medical equipment.",
+        "DNTS" : "The transaction is a payment for dental services.",
+        "HLTC" : "The transaction is a payment for home health care services.",
+        "HLTI" : "The transaction is a payment of health insurance.",
+        "HSPC" : "The transaction is a payment for hospital care services.",
+        "ICRF" : "The transaction is a payment for intermediate care facility services.",
+        "LTCF" : "The transaction is a payment for long-term care facility services.",
+        "MDCS" : "The transaction is a payment for medical care services.",
+        "VIEW" : "The transaction is a payment for vision care services.",
+        "ALMY" : "The transaction is the payment of alimony.",
+        "BECH" : "The transaction is related to a payment made to assist parent/guardian to maintain child/children.",
+        "BENE" : "The transaction is related to a payment to a person who is unemployed/disabled.",
+        "BONU" : "The transaction is related to payment of a bonus.",
+        "COMM" : "The transaction is payment of commission.",
+        "CSLP" : "The transaction is a payment by a company to a bank for financing social loans to employees.",
+        "GVEA" : "The transaction is payment to category A Austrian government employees.",
+        "GVEB" : "The transaction is payment to category B Austrian government employees.",
+        "GVEC" : "The transaction is payment to category C Austrian government employees.",
+        "GVED" : "The transaction is payment to category D Austrian government employees.",
+        "PAYR" : "The transaction is related to the payment of payroll.",
+        "PENS" : "The transaction is the payment of pension.",
+        "PRCP" : "The transaction is related to a payment of a price.",
+        "SALA" : "The transaction is the payment of salaries.",
+        "SSBE" : "The transaction is a social security benefit, i. e. payment made by a government to support individuals.",
+        "ESTX" : "The transaction is related to a payment of estate tax.",
+        "HSTX" : "The transaction is related to a payment of housing tax.",
+        "INTX" : "The transaction is related to a payment of income tax.",
+        "NITX" : "The transaction is related to a payment of net income tax.",
+        "TAXS" : "The transaction is the payment of taxes.",
+        "VATX" : "The transaction is the payment of value added tax.",
+        "WHLD" : "The transaction is related to a payment of withholding tax.",
+        "AIRB" : "The transaction is a payment for air transport related business.",
+        "BUSB" : "The transaction is a payment for bus transport related business.",
+        "FERB" : "The transaction is a payment for ferry related business.",
+        "RLWY" : "The transaction is a payment for railway transport related business.",
+        "CBTV" : "The transaction is related to a payment of cable TV bill.",
+        "ELEC" : "The transaction is related to a payment of electricity bill.",
+        "ENRG" : "The transaction is related to a utility operation.",
+        "GASB" : "The transaction is related to a payment of gas bill.",
+        "NWCH" : "The transaction is related to a payment of network charges.",
+        "NWCM" : "The transaction is related to a payment of network communication.",
+        "OTLC" : "The transaction is related to a payment of other telecom related bill.",
+        "PHON" : "The transaction is related to a payment of telephone bill.",
+        "WTER" : "The transaction is related to a payment of water bill."
+    }
+    document.getElementById("purp-inspector").innerText = purps[document.getElementById("purp").value]
+    function Submit(){
+        if (document.getElementById("bic").value && document.getElementById("name").value && document.getElementById("remit").value){
+        var query = "BCD\n001\nSCT\n";
+        query += document.getElementById("bic").value + "\n" + document.getElementById("name").value + "\n" + document.getElementById("iban").value + "\n" + document.getElementById("amount").value + "\n" + document.getElementById("purp").value + "\n"
+        if (document.getElementById("remt").value == "first") {
+            if (!document.getElementById("inf").value) {
+                query += document.getElementById("remit").value
+            } else {
+                query += document.getElementById("remit").value + "\n" + document.getElementById("inf").value
+            }
+        } else {
+            if (!document.getElementById("inf").value) {
+                query += "\n" + document.getElementById("remit").value
+            } else {
+                query += "\n" + document.getElementById("remit").value + "\n" + document.getElementById("inf").value
+            }
+        }
+        document.getElementById("qrcode").innerHTML = ""
+        console.log(query.length)
+        new QRCode(document.getElementById("qrcode"), {
+        version:13,
+        text:query,
+        correctLevel:QRCode.CorrectLevel.M,
+        colorDark:"#181c28",
+        colorLight:"#FFFFFF",
+        width:512,
+        height:512});
+        } else {
+            console.log("Not all required fields are satisfied.")
+        }
+    }
+    addEventListener("click", ()=>{
+        if (document.getElementById("remt").value == "first") {
+            document.getElementById("remit").placeholder = "Enter RF..."
+            document.getElementById("remit").maxLength = 35
+        } else {
+            document.getElementById("remit").placeholder = "Enter RT..."
+            document.getElementById("remit").maxLength = 140
+        }
+
+        document.getElementById("purp-inspector").innerText = purps[document.getElementById("purp").value]
+    })
+    </script>
+</body>
+</html>
