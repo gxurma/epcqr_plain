@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EPCQR - Code</title>
+    <title>EPCQR - Code Generator</title>
 </head>
 <body>
-    
     <div id="body-container">
         <div id="splash-screen">
-            <h2>Welcome to the EPCQR - Code converter!</h2>
-        </div>
+            <h3>Easy EPCQR - Code Generator</h3>
+	    </div>
         <svg id="trans_2">
         </svg>
+        <div id="info">
+			<h3>Written by</br><a href="https://www.engyneer.at">enGYneer.at</a></h3>			
+		</div>
         <div id="info">
             <h3>
                 Advantages:
@@ -22,8 +24,19 @@
                 <li>intuitive</li>
                 <li>blazingly fast</li>
                 <li>anonymous - no registration needed</li>
-                <li>safe - no data leaves your PC </li>
+                <li>safe - absolutely no data leaves your PC</li>
             </ul>
+		</div>
+		<div id="info">
+            <h3>
+                Background Info:
+            </h3>
+		
+			<ul>
+				<li>This QR Code Generator works according to <a href="https://de.wikipedia.org/wiki/EPC-QR-Code">The European Payments Council Quick Response Code </a> guidelines</li>
+				<li>It implements the <a href="https://www.europeanpaymentscouncil.eu/sites/default/files/kb/file/2022-09/EPC069-12%20v3.0%20Quick%20Response%20Code%20-%20Guidelines%20to%20Enable%20the%20Data%20Capture%20for%20the%20Initiation%20of%20an%20SCT_0.pdf">guidelines version 3</a></li>
+			</ul>
+
         </div>
         <svg id="trans_1">
         </svg>
@@ -36,7 +49,7 @@
             <input type="text" id="bic" maxlength="11" placeholder="Enter BIC code...">
             <h3 style="color: #9d654c;">Enter the beneficiary's IBAN:</h3>
             <input type="text" id="iban" maxlength="34" placeholder="Enter IBAN...">
-            <h3 style="color: #9d654c;">Enter the amount in euros:</h3>
+            <h3 style="color: #9d654c;">Enter the amount in Euros: (like 123.45)</h3>
             <input type="text" id="amount" maxlength="12" placeholder="Enter amount in Euros...">
             <h3 style="color: #9d654c;">Choose the corresponding purpose of the transfer:</h3>
             <select id="purp" maxlength="4" placeholder="Enter 4-letter purpose">
@@ -179,10 +192,10 @@
             </div>
             <h3 style="color: #9d654c;">Choose the type of Remittance:</h3>
             <select id="remt">
-                <option value="first">Use Remittance Reference</option>
                 <option value="second">Use Remittance text</option>
+                <option value="first">Use Remittance Reference</option>
             </select>
-            <input type="text" id="remit" placeholder="Enter RF..." maxlength="35">
+            <input type="text" id="remit" placeholder="Enter RT..." maxlength="140">
             <h3 style="color: #9d654c;">Enter additional optional info:</h3>
             <input type="text" id="inf" placeholder="Additional Info..." maxlength="70">
             <h4 style="font-size: smaller;"></h4>
@@ -367,7 +380,7 @@ document.getElementById('download-button').style.visibility = "hidden"
         query += document.getElementById("bic").value + "\n" 
 		query += document.getElementById("name").value + "\n" 
 		query += document.getElementById("iban").value + "\n"
-		query += "EUR" + document.getElementById("amount").value + "\n"
+		query += "EUR" + document.getElementById("amount").value.replace(/,/g,".") + "\n"
 		query += document.getElementById("purp").value + "\n"
 		
         if (document.getElementById("remt").value == "first") {
@@ -392,7 +405,7 @@ document.getElementById('download-button').style.visibility = "hidden"
         colorLight:"#FFFFFF",
         width:512,
         height:512});
-        document.getElementById("error_logger").innerText = "Successfully generated!"
+        document.getElementById("error_logger").innerText = "Successfully generated! Remember! Always check with your banking app before you send the money"
         document.getElementById('download-button').style.visibility = "visible"
         } else {
             console.log("Not all required fields are satisfied.")
@@ -404,12 +417,23 @@ document.getElementById('download-button').style.visibility = "hidden"
             document.getElementById("remit").placeholder = "Enter RF..."
             document.getElementById("remit").maxLength = 35
         } else {
-            document.getElementById("remit").placeholder = "Enter RT..."
+            document.getElementById("remit").placeholder = "Enter remittance, purpose Text, number etc..."
             document.getElementById("remit").maxLength = 140
         }
 
         document.getElementById("purp-inspector").innerText = purps[document.getElementById("purp").value]
     })
     </script>
+<div id="footer">
+<hr/>
+Made by: Martin Gyurko, <a href="https://www.engyneer.at">www.engyneer.at</a> 
+</br>Any usage is solely on the users responsibility.<br/>
+Please note that this web page uses a QR code generator library developed by Kazuhiko Arase. "QR Code" is registered trademark of DENSO WAVE INCORPORATED. While we have taken reasonable care to ensure the accuracy and reliability of the generator, we hereby disclaim any liability for any errors, omissions, or damages arising out of or in connection with your use of the QR code generator.
+We do not make any representations or warranties, express or implied, regarding the QR code generator or its accuracy, reliability, or suitability for any particular purpose. You use the QR code generator at your own risk, and we shall not be liable for any loss or damage of any kind arising from your use of the QR code generator.
+By using the QR code generator on this web page, you agree to hold us harmless from any and all claims, damages, or expenses arising from your use of the generator. This includes, but is not limited to, any claims or damages arising from any errors or omissions in the QR code generated by the library.
+We reserve the right to modify, suspend, or discontinue the QR code generator at any time, without notice or liability to you. By continuing to use the QR code generator, you acknowledge that you have read this disclaimer and agree to be bound by its terms.
+</div>
+	
+ 
 </body>
 </html>

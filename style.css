@@ -25,8 +25,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width:50vw;
-    height: 50vh;
+    width:40vw;
+    height: 40vh;
     font-size: 4vw;
 }
 
@@ -71,7 +71,6 @@ h4 {
     background-color:  inherit;
     margin:0;
     border-radius: 10px;
-
 }
 
 li {
@@ -88,8 +87,8 @@ li {
 
 #qrcode > img {
     padding:2vh;
-    width:40vw;
-    height: 40vw;
+    width: 30vw;
+    height: 30vw;
     background-color: #FFFFFF;
 }
 
@@ -205,4 +204,42 @@ li {
 #download-button:hover {
     background-color:#210b1b;
     color: #9d654c;
+}
+
+
+a:link {
+  text-decoration: none;
+  color: red;
+}
+
+a:visited {
+  text-decoration: none;
+  color: green;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: hotpink;
+}
+
+a:active {
+  text-decoration: underline;
+  color: blue;
+}
+
+
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+#footer {
+	color: #9d654c;
+	text-align: center;
 }
