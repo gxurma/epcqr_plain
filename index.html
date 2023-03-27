@@ -21,25 +21,26 @@
             <ul>
                 <li>intuitive</li>
                 <li>blazingly fast</li>
-                <li>anonymous</li>
-                
+                <li>anonymous - no registration needed</li>
+                <li>safe - no data leaves your PC </li>
             </ul>
         </div>
         <svg id="trans_1">
         </svg>
 
         <div id="submit-form">
-            <h2 style="text-decoration: underline;">The Prompt / The data input</h2>
-            <h3 style="color: #9d654c;">Enter your BIC Code / the beneficiary's BIC Code here:</h3>
-            <input type="text" id="bic" maxlength="11" placeholder="Enter BIC code...">
-            <h3 style="color: #9d654c;">Enter your name / the beneficiary's name here:</h3>
+            <h2 style="text-decoration: underline;">Start here!</h2>
+            <h3 style="color: #9d654c;">Enter beneficiary's name here, this is the persons/organisations<br> name you want to send the money to:</h3>
             <input type="text" id="name" maxlength="70" placeholder="Enter name of beneficiary...">
-            <h3 style="color: #9d654c;">Enter your IBAN / the beneficiary's IBAN:</h3>
+            <h3 style="color: #9d654c;">Enter the beneficiary's BIC Code here:</h3>
+            <input type="text" id="bic" maxlength="11" placeholder="Enter BIC code...">
+            <h3 style="color: #9d654c;">Enter the beneficiary's IBAN:</h3>
             <input type="text" id="iban" maxlength="34" placeholder="Enter IBAN...">
             <h3 style="color: #9d654c;">Enter the amount in euros:</h3>
-            <input type="text" id="amount" maxlength="12" placeholder="Enter amount in euros...">
+            <input type="text" id="amount" maxlength="12" placeholder="Enter amount in Euros...">
             <h3 style="color: #9d654c;">Choose the corresponding purpose of the transfer:</h3>
             <select id="purp" maxlength="4" placeholder="Enter 4-letter purpose">
+                <option value="GDDS">Commercial - GDDS - Purchase & Sale of Goods</option>
                 <option value="">----</option>
                 <option value="CDCD">Card Settlement - CDCD - Cash Disbursement</option>
                 <option value="CDCB">Card Settlement - CDCB - Card Payment with cashback</option>
@@ -59,7 +60,6 @@
                 <option value="BOCE">Commercial - BOCE - Back Office Conversion Entry</option>
                 <option value="COMC">Commercial - COMC - Commercial Payment</option>
                 <option value="CPYR">Commercial - CPYR - Copyright</option>
-                <option value="GDDS">Commercial - GDDS - Purchase & Sale of Goods</option>
                 <option value="GDSV">Commercial - GDSV - Purchase & Sale of Goods and Services</option>
                 <option value="GSCB">Commercial - GSCB - Purchase & Sale of Goods and Services with Cash-back</option>
                 <option value="LICF">Commercial - LICF - License Fee</option>
@@ -363,8 +363,13 @@ document.getElementById('download-button').style.visibility = "hidden"
     document.getElementById("purp-inspector").innerText = purps[document.getElementById("purp").value]
     function Submit(){
         if (document.getElementById("bic").value && document.getElementById("name").value && document.getElementById("remit").value){
-        var query = "BCD\n001\nSCT\n";
-        query += document.getElementById("bic").value + "\n" + document.getElementById("name").value + "\n" + document.getElementById("iban").value + "\n" + document.getElementById("amount").value + "\n" + document.getElementById("purp").value + "\n"
+        var query = "BCD\n001\nSCT\n1\n";
+        query += document.getElementById("bic").value + "\n" 
+		query += document.getElementById("name").value + "\n" 
+		query += document.getElementById("iban").value + "\n"
+		query += "EUR" + document.getElementById("amount").value + "\n"
+		query += document.getElementById("purp").value + "\n"
+		
         if (document.getElementById("remt").value == "first") {
             if (!document.getElementById("inf").value) {
                 query += document.getElementById("remit").value
